@@ -1,6 +1,8 @@
 # STAGE 1: Build
 FROM node:22-alpine AS builder
+
 RUN npm config set registry https://registry.npmmirror.com
+
 WORKDIR /app
 
 # Копируем зависимости первыми — для кэширования слоёв
