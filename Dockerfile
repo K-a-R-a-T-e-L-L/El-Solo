@@ -1,8 +1,7 @@
-FROM node:20-alpine AS base
+FROM node:20-slim AS base
 
 # Установка зависимостей
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
