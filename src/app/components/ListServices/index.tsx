@@ -107,7 +107,7 @@ const ListServices = ({ t }: ListServicesProps) => {
                             <br />
                             <button className={`w-full h-[50px] max-xl:h-[40px] bg-gradient-to-br hidden_text_card_price_${i + 1}
                                 ${i === 0 ? "from-sky-500" : (i === 1 ? "from-cyan-500" : "from-blue-500")} max-xl:text-[14px] ${i === 0 ? "to-sky-600" : (i === 1 ? "to-cyan-600" : "to-blue-600")} 
-                                hover:opacity-60 active:translate-y-[-1px] transition-all text-[black] font-semibold rounded-[3px]`} onClick={() => setIsOpenPopUp(true)} style={{animationDelay: `${2 + 0.5 * i}s`}}>
+                                hover:opacity-60 active:translate-y-[-1px] transition-all text-[black] font-semibold rounded-[3px]`} onClick={() => setIsOpenPopUp(true)} style={{ animationDelay: `${2 + 0.5 * i}s` }}>
                                 {el.button}
                             </button>
                             <span className={style.decor_gradient_line}></span>
@@ -117,10 +117,13 @@ const ListServices = ({ t }: ListServicesProps) => {
             </article>
             {isOpenPopUp && (
                 <PopUpWindow color={'0,0,0'} set={setIsOpenPopUp}>
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-y-10">
+                    <div className="w-full h-full flex flex-col items-center justify-evenly">
                         <h3 className="text-[22px] text-center w-[80%] text-shadow-[0_0_3px_black] max-xl:text-[18px] max-xl:mb-[20px] max-xl:w-[85%]" style={{ fontFamily: 'RubikWetPaint' }}>{t.services.popUpWindow.title}</h3>
                         <div className="relative w-[60%] aspect-[5/2] max-md:w-[80%] overflow-hidden rounded-xl max-xl:rounded-[8px]">
                             <Image src={'/images/puzzle.png'} alt={t.services.popUpWindow.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        </div>
+                        <div className="w-[200px] aspect-square relative overflow-hidden rounded-[30px]">
+                            <Image src={'/images/qr.png'} alt={'QR code'} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </div>
                         <hr className="w-[80%] h-[2px] max-md:w-[90%]" />
                         <div className="h-[50px] max-xl:h-[40px] max-xl:gap-x-[12px] flex p-1 gap-[20px] flex-wrap justify-center items-center mt-[30px] max-xl:mt-[20px]">
