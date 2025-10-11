@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
         pathname.startsWith('/images') ||
         pathname.startsWith('/fonts') ||
         pathname.startsWith('/favicon') ||
-        pathname.startsWith('yandex_89b9752c1dfcfb0f.html') ||
+        pathname.startsWith('/yandex_89b9752c1dfcfb0f.html') ||
         pathname.startsWith('/sitemap') ||
         pathname.startsWith('/apple-touch-icon.png')
     ) {
