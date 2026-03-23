@@ -3,6 +3,7 @@ import style from './styles.module.css';
 import { AdvantagesI18nType } from "@/types/i18n";
 import { useEffect } from "react";
 import { animatedElements } from "@/app/lib/observer";
+import { imageByBase } from "@/app/lib/imageRegistry";
 
 interface AdvantagesProps {
     t: AdvantagesI18nType;
@@ -25,7 +26,7 @@ const Advantages = ({ t }: AdvantagesProps) => {
                             <div className={`${style.bgCardAdvatage} w-full h-full bg-[#141414] rounded-[14px]`}>
                                 <h4 className="text-[20px] max-xl:text-[16px] flex w-full items-center gap-x-4 p-5 text-[#00FF88] hidden_text_advantages" style={{ fontFamily: 'RubikWetPaint', animationDelay: `${2 + 0.5 * i}s` }}>
                                     <div className={`w-[30px] aspect-[1/1] relative`}>
-                                        <Image src={'/images/arrow_red.png'} alt={t.advantages.alts[0]} fill style={{ animationDelay: `${i * 0.2}s` }} className={`object-contain ${style.shift}`} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <Image src={imageByBase("arrow_red")} alt={t.advantages.alts[0]} fill style={{ animationDelay: `${i * 0.2}s` }} className={`object-contain ${style.shift}`} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                     </div>
                                     {el.title}
                                 </h4>
@@ -46,7 +47,7 @@ const Advantages = ({ t }: AdvantagesProps) => {
                         {t.advantages.titleSecond.last}
                     </h3>
                     <div className="w-[80%] max-sm:w-[300px] aspect-[576/336] relative">
-                        <Image src={'/images/handshake.png'} alt={t.advantages.alts[1]} className={`object-contain opacity-35 rounded-[100px] ${style.shaking}`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        <Image src={imageByBase("handshake")} alt={t.advantages.alts[1]} className={`object-contain opacity-35 rounded-[100px] ${style.shaking}`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     </div>
                 </div>
                 <div className={`w-[90%] flex flex-col h-full justify-evenly relative rounded-[5px] border-1 border-[#008080] overflow-hidden p-2.5 pb-8 ${style.transfusion_bg} hidden_comparisons`} style={{ animationDelay: '3s' }}>
@@ -71,7 +72,7 @@ const Advantages = ({ t }: AdvantagesProps) => {
                                     </p>
                                 </div>
                                 <div className="relative w-[40%] max-sm:w-[60%] h-full">
-                                    <Image src={'/images/arrow.png'} alt={t.advantages.alts[2]} fill className={`object-contain drop-shadow-[0_0_3px_#00FFD1]`} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                    <Image src={imageByBase("arrow")} alt={t.advantages.alts[2]} fill className={`object-contain drop-shadow-[0_0_3px_#00FFD1]`} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                 </div>
                                 <div className="flex justify-center items-end h-full w-full">
                                     <p className={`text-[16px] max-xl:text-[14px] max-sm:text-[12px] w-[70%] h-full inline-flex items-center border-b-1 border-dashed border-[#008080] pb-[5px] break-all ${style.hoverP}`}>

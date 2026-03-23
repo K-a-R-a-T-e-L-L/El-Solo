@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import style from './styles.module.css';
+import { imageByBase } from "@/app/lib/imageRegistry";
 
 interface HeaderProps {
     t: HeaderI18nType
@@ -30,7 +31,7 @@ const Header = ({ t }: HeaderProps) => {
                 <ul className="w-[80%] h-full flex justify-between items-center max-md:justify-evenly">
                     <div className="h-[70%] relative flex items-center gap-x-[20px]">
                         <div className="h-full aspect-square relative grid place-items-center">
-                            <Image src={'/images/logo.png'} alt={t.header.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                            <Image src={imageByBase("logo")} alt={t.header.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </div>
                         <h1 className="text-[aqua] text-[22px] " style={{ fontFamily: 'RubikWetPaint' }}>El Solo</h1>
                     </div>
@@ -40,7 +41,7 @@ const Header = ({ t }: HeaderProps) => {
                         )
                     })}
                     <div className={`h-[70%] aspect-square relative cursor-pointer hover:opacity-50 hidden max-md:block ${isActiveBurgerMenu ? style.rotate_menu : style.rorotate_menu}`} onClick={() => setIsActiveBurgerMenu(!isActiveBurgerMenu)}>
-                        <Image src={`/images/burger_menu${isBurgerMenuRotate ? '_open' : ''}.png`} alt="" fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        <Image src={imageByBase(`burger_menu${isBurgerMenuRotate ? "_open" : ""}`)} alt="" fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     </div>
                     <nav className={`fixed left-0 top-[80px] w-screen pb-[160px] hidden overflow-hidden bg-[#0a0a0a] ${isActiveBurgerMenu === false ? style.hidden_burger : isActiveBurgerMenu ? style.appereance_burger : null}`}>
                         <ul className="flex flex-col w-full h-full justify-center items-center gap-y-20">

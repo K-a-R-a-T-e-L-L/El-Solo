@@ -23,14 +23,14 @@
     ],
     "screenshots": [
         {
-            "src": "/images/screenshot_desktop_en.png",
-            "type": "image/png",
+            "src": "/images/screenshot_desktop_en.webp",
+            "type": "image/webp",
             "sizes": "1280x720",
             "form_factor": "wide"
         },
         {
-            "src": "/images/screenshot_mobile_en.png",
-            "type": "image/png",
+            "src": "/images/screenshot_mobile_en.webp",
+            "type": "image/webp",
             "sizes": "360x640",
             "form_factor": "narrow"
         }

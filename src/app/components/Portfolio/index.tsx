@@ -3,6 +3,7 @@ import style from './styles.module.css';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { animatedElements } from '@/app/lib/observer';
+import { imageByBase } from '@/app/lib/imageRegistry';
 
 interface PortfolioProps {
     t: PortfolioI18nType
@@ -45,7 +46,15 @@ const Portfolio = ({ t }: PortfolioProps) => {
                                 {el.button.title}
                             </a>
                             <div className='w-[20%] aspect-[1/1] absolute bottom-0 right-0 -z-1'>
-                                <Image src={`/images/${el.icon.url}_icon.png`} alt={el.icon.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                <Image
+                                    src={imageByBase(`${el.icon.url}_icon`)}
+                                    alt={el.icon.alt}
+                                    fill
+                                    loading="eager"
+                                    fetchPriority="high"
+                                    style={{ objectFit: 'contain' }}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
                             </div>
                             <span className={style.decor_gradient_line_bottom} style={{ animationDelay: `${i}s` }}></span>
                         </div>

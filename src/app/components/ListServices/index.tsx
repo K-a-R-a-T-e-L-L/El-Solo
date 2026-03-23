@@ -4,6 +4,7 @@ import style from "./styles.module.css";
 import { useEffect, useState } from "react";
 import PopUpWindow from "../PopUpWindow";
 import { animatedElements } from "@/app/lib/observer";
+import { imageByBase, socialIconByLabel } from "@/app/lib/imageRegistry";
 
 interface ListServicesProps {
     t: ListServicesI18nType
@@ -58,12 +59,12 @@ const ListServices = ({ t }: ListServicesProps) => {
                                         }) : null}
                                     </ul>
                                     <div className="w-[60%] h-[15%] pt-[5px] relative">
-                                        <Image src={`/images/${el.images.icon.url}.png`} alt={el.images.icon.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <Image src={imageByBase(el.images.icon.url)} alt={el.images.icon.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                     </div>
                                 </div>
                                 <div className={`${style.card_back} ${style.card_face_and_back} p-5 rounded-[13px]`}>
                                     <div className="w-full h-[30%] relative">
-                                        <Image src={`/images/${el.images.image.url}.png`} alt={el.images.image.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <Image src={imageByBase(el.images.image.url)} alt={el.images.image.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                     </div>
                                     <p className="max-xl:text-[14px] max-lg:text-[12px] font-bold text-purple-100">
                                         <span className={`text-[aqua] ${style.main_text}`}>{el.description.split("—")[0]}</span>
@@ -117,26 +118,56 @@ const ListServices = ({ t }: ListServicesProps) => {
             </article>
             {isOpenPopUp && (
                 <PopUpWindow color={'0,0,0'} set={setIsOpenPopUp}>
-                    <div className="w-full h-full flex flex-col items-center justify-evenly">
-                        <h3 className="text-[22px] text-center w-[80%] text-shadow-[0_0_3px_black] max-xl:text-[18px] max-xl:mb-[20px] max-xl:w-[85%]" style={{ fontFamily: 'RubikWetPaint' }}>{t.services.popUpWindow.title}</h3>
-                        <div className="relative w-[60%] aspect-[5/2] max-md:w-[80%] overflow-hidden rounded-xl max-xl:rounded-[8px]">
-                            <Image src={'/images/puzzle.png'} alt={t.services.popUpWindow.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    <div className="w-full flex flex-col gap-6 text-[#d8ebff]">
+                        <h3
+                            className="text-[26px] max-lg:text-[22px] max-md:text-[18px] text-center leading-tight tracking-[0.01em]"
+                            style={{ fontFamily: "RubikWetPaint" }}
+                        >
+                            {t.services.popUpWindow.title}
+                        </h3>
+
+                        <div className="grid grid-cols-[1fr_220px] max-md:grid-cols-1 gap-4 items-center">
+                            <div className="relative w-full aspect-[16/8] max-sm:aspect-[16/10] overflow-hidden rounded-2xl border border-[rgba(130,199,255,0.35)] shadow-[0_10px_35px_rgba(0,0,0,0.38)]">
+                                <Image
+                                    src={imageByBase("puzzle")}
+                                    alt={t.services.popUpWindow.alt}
+                                    fill
+                                    style={{ objectFit: "cover" }}
+                                    sizes="(max-width: 768px) 100vw, 70vw"
+                                />
+                            </div>
+                            <div className="justify-self-center">
+                                <div className="w-[180px] max-sm:w-[150px] aspect-square relative rounded-xl border border-[rgba(46,251,219,0.35)] bg-[rgba(4,20,32,0.72)] p-2 shadow-[0_0_30px_rgba(15,224,205,0.2)]">
+                                    <Image
+                                        src={imageByBase("qr")}
+                                        alt={"QR code"}
+                                        fill
+                                        style={{ objectFit: "contain" }}
+                                        sizes="180px"
+                                    />
+                                </div>
+                                <p className="text-center text-[12px] text-cyan-200/70 mt-2">Scan QR to contact fast</p>
+                            </div>
                         </div>
-                        <div className="w-[130px] aspect-square relative">
-                            <Image src={'/images/qr.png'} alt={'QR code tg'} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                        </div>
-                        <hr className="w-[80%] h-[2px] max-md:w-[90%]" />
-                        <div className="h-[50px] max-xl:h-[40px] max-xl:gap-x-[12px] flex p-1 gap-[20px] flex-wrap justify-center items-center mt-[30px] max-xl:mt-[20px]">
+
+                        <hr className="w-full h-px border-0 bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
+
+                        <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-3">
                             {t.services.popUpWindow.listSocialNetwork.length > 0 ? t.services.popUpWindow.listSocialNetwork.map((el, i) => {
                                 return (
                                     <a
-                                        className="h-full aspect-[1/1] rounded-[100%] relative shadow-[0_0_5px_black] cursor-pointer hover:opacity-70 active:scale-[0.97] transition-all duration-100"
+                                        className="w-full min-h-[52px] rounded-xl border border-[rgba(128,188,255,0.35)] bg-[rgba(8,22,38,0.78)] px-3 py-2 flex items-center gap-3 hover:border-cyan-300 hover:bg-[rgba(9,29,48,0.9)] transition-all duration-200 active:scale-[0.99]"
                                         key={i}
                                         href={el.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <Image src={`/images/${el.name}_icon.png`} alt={el.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <div className="w-[28px] aspect-square relative shrink-0">
+                                            <Image src={socialIconByLabel(el.name, true)} alt={el.alt} fill style={{ objectFit: "contain" }} sizes="28px" />
+                                        </div>
+                                        <span className="text-[13px] max-sm:text-[12px] text-cyan-100/90 break-all">
+                                            {el.name.toUpperCase()}
+                                        </span>
                                     </a>
                                 )
                             }) : null}

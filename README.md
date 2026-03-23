@@ -1,46 +1,135 @@
-# El Solo 🃏
+# El Solo
 
-# Многоязычный сайт-визитка и платформа для привлечения потенциальных клиентов 👥
+<details open>
+<summary><strong>English</strong></summary>
 
-![alt text](public/images/screenshot_desktop_en.png)
+Portfolio/landing project on Next.js with multilingual routing (`/ru`, `/en`), animated sections, and SEO-ready metadata.
 
-## ✨ Информация
-- Главный экран приветсвия
-- Секция с преимуществами
-- Прайс-лист (с выпадающим диалоговым окном)
-- Список моих работ
-- Контакты
+## Stack
 
-## 🛠 Технологии
-- Фронтенд:
-  - Next.js
-  - TypeScript
-  - Tailwind CSS
-  - I18N (многоязычность)
-  - Docker
-  - SCSS (стили)
+- Next.js 15 (App Router, standalone output)
+- React 19
+- TypeScript
+- SCSS + Tailwind
+- Docker (multi-stage build)
 
-## ⚙️ Установка
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/K-a-R-a-T-e-L-L/El-Solo
-   cd El-Solo
+## Project Structure
 
-2. Установка зависимостей:
-   ```bash
-   npm install
+```txt
+src/
+  app/
+    [locale]/
+      layout.tsx
+      page.tsx
+    components/
+    lib/
+      i18n.ts
+      metadata.ts
+    sitemap.ts
+  middleware.ts
+public/
+  locales/
+    en/
+    ru/
+  images/
+```
 
-3. Запуск 
-- Docker:
-   ```bash
-   docker build -t el-solo .
-   docker run -p 3000:3000 el-solo
-- Локально:
-   ```bash
-   npm run build
-   npm start
+## Local Run
 
-## 📞 Контакты
-   ● **Телеграм** — [@K_a_R_a_T_e_L_L](https://t.me/K_a_R_a_T_e_L_L)
-   
-   ● **Email** — kirillcuhorukov6@gmail.com
+```bash
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+npm run start
+```
+
+## Docker
+
+Build and run:
+
+```bash
+docker build -t el-solo .
+docker run -p 3000:3000 el-solo
+```
+
+## i18n
+
+- Translation loader: `src/app/lib/i18n.ts`
+- Locale validation: `src/app/[locale]/layout.tsx` and `src/app/[locale]/page.tsx`
+- Translation files:
+  - `public/locales/ru/*.json`
+  - `public/locales/en/*.json`
+
+</details>
+
+<details>
+<summary><strong>Русский</strong></summary>
+
+Портфолио/лендинг на Next.js с мультиязычной маршрутизацией (`/ru`, `/en`), анимированными секциями и SEO-метаданными.
+
+## Стек
+
+- Next.js 15 (App Router, standalone output)
+- React 19
+- TypeScript
+- SCSS + Tailwind
+- Docker (многоэтапная сборка)
+
+## Структура проекта
+
+```txt
+src/
+  app/
+    [locale]/
+      layout.tsx
+      page.tsx
+    components/
+    lib/
+      i18n.ts
+      metadata.ts
+    sitemap.ts
+  middleware.ts
+public/
+  locales/
+    en/
+    ru/
+  images/
+```
+
+## Локальный запуск
+
+```bash
+npm install
+npm run dev
+```
+
+Сборка и запуск production:
+
+```bash
+npm run build
+npm run start
+```
+
+## Docker
+
+Сборка и запуск:
+
+```bash
+docker build -t el-solo .
+docker run -p 3000:3000 el-solo
+```
+
+## Локализация
+
+- Загрузчик переводов: `src/app/lib/i18n.ts`
+- Валидация локали: `src/app/[locale]/layout.tsx` и `src/app/[locale]/page.tsx`
+- Файлы переводов:
+  - `public/locales/ru/*.json`
+  - `public/locales/en/*.json`
+
+</details>

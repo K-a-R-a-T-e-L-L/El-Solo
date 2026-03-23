@@ -100,32 +100,32 @@
             "listSocialNetwork": [
                 {
                     "url": "https://t.me/K_a_R_a_T_e_L_L",
-                    "name": "tg",
+                    "name": "Telegram",
                     "alt": "Иконка телеграма"
                 },
                 {
                     "url": "https://github.com/K-a-R-a-T-e-L-L",
-                    "name": "gh",
+                    "name": "GitHub",
                     "alt": "Иконка гитхаба"
                 },
                 {
                     "url": "https://vk.com/k_a_r_a_t_e_l_l",
-                    "name": "vk",
+                    "name": "VKontakte",
                     "alt": "Иконка вконтакте"
                 },
                 {
                     "url": "mailto:kirillcuhorukov6@gmail.com",
-                    "name": "email",
+                    "name": "Email",
                     "alt": "Иконка электронной почты"
                 },
                 {
                     "url": "https://wa.me/89617160943",
-                    "name": "whatsapp",
+                    "name": "Whatsapp",
                     "alt": "Иконка ватсаппа"
                 },
                 {
                     "url": "tel:8-961-716-09-43",
-                    "name": "tel",
+                    "name": "Phone",
                     "alt": "Иконка телефона"
                 }
             ]

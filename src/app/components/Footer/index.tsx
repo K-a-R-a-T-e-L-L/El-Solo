@@ -2,6 +2,7 @@ import { FooterI18nType } from "@/types/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import style from './styles.module.css';
+import { imageByBase, socialIcon } from "@/app/lib/imageRegistry";
 
 interface FooterProps {
     t: FooterI18nType;
@@ -13,7 +14,7 @@ const Footer = ({ t }: FooterProps) => {
             <div className="border-0 flex flex-col items-center gap-y-5 max-sm:w-[250px] ml-[auto] mr-[auto]">
                 <div className="w-full flex gap-x-5 justify-center">
                     <div className="w-[30px] aspect-square relative">
-                        <Image src={'/images/logo.png'} alt={t.footer.firstBox.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        <Image src={imageByBase("logo")} alt={t.footer.firstBox.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     </div>
                     <h3 className="inline-flex items-center text-[22px] max-xl:text-[18px] text-[aqua]" style={{ fontFamily: 'RubikWetPaint' }}>{t.footer.firstBox.title}</h3>
                 </div>
@@ -45,7 +46,7 @@ const Footer = ({ t }: FooterProps) => {
                                 rel="noopener noreferrer"
                             >
                                 <div className="h-[60%] aspect-square relative">
-                                    <Image src={`/images/${el[2]}_icon_aqua.png`} alt={el[3]} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                    <Image src={socialIcon(el[2], true)} alt={el[3]} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                 </div>
                                 <span className="whitespace-nowrap">{el[0]}</span>
                             </Link>

@@ -5,6 +5,7 @@ import { useGetSizingWidthWindow } from "@/hooks/useGetSizingWidthWindow/useGetS
 import style from './styles.module.css';
 import { HomeI18nType } from "@/types/i18n";
 import { animatedElements } from "@/app/lib/observer";
+import { imageByBase } from "@/app/lib/imageRegistry";
 
 interface HomeProps {
     t: HomeI18nType
@@ -39,7 +40,7 @@ const Home = ({ t }: HomeProps) => {
 
     return (
         <section className="h-[950px] max-xl:h-[850px] max-lg:h-[800px] w-full flex masked relative pt-20" id="home">
-            <Image src={'/images/night_city.png'} alt={t.home.alts[0]} fill style={{ objectFit: 'cover' }} className="-z-1" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+            <Image src={imageByBase("night_city")} alt={t.home.alts[0]} fill style={{ objectFit: 'cover' }} className="-z-1" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <article className="w-[50%] max-xl:w-[40%] max-lg:w-[50%] max-md:w-full h-full flex flex-col justify-start pt-[10%] pr-[3%] z-1">
                 <h1 className={`text-[42px] max-xl:text-[32px] max-lg:text-[28px] max-md:text-[26px] hidden_text_home`} style={{ fontFamily: 'RubikWetPaint', animationDelay: '2s' }} >
                     <br />
@@ -75,7 +76,7 @@ const Home = ({ t }: HomeProps) => {
                 </p>
             </article>
             <article className="w-[50%] h-full max-xl:w-[60%] max-lg:w-[50%] max-md:w-full max-md:h-full max-md:items-end max-md:absolute max-lg:h-[80%] relative flex items-center justify-center">
-                <Image src={'/images/broken_glass.png'} alt={t.home.alts[1]} fill style={{ objectFit: 'contain' }} priority className={style.appereance_img} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                <Image src={imageByBase("broken_glass")} alt={t.home.alts[1]} fill style={{ objectFit: 'contain' }} priority className={style.appereance_img} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 <div className="w-[70%] max-xl:w-[60%] max-lg:w-[90%] relative h-[70%] flex flex-wrap items-center justify-center gap-[20px] text-[#00ffd015] perspective-[1000px]" style={widthWindow === 0 ? { display: 'none' } : { display: 'flex' }}>
                     <Card
                         widthCard={adaptiveWidthsCards[0]}

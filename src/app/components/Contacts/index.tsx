@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactsI18nType } from "@/types/i18n";
 import { useEffect, useState } from "react";
 import { animatedElements } from "@/app/lib/observer";
+import { imageByBase, socialIcon } from "@/app/lib/imageRegistry";
 
 interface ContactsProps {
     t: ContactsI18nType;
@@ -64,7 +65,7 @@ const Contacts = ({ t }: ContactsProps) => {
                                     bg-[rgba(0,255,255,0.01)] p-10 max-sm:p-5 rounded-[20px] border-1 border-[rgba(0,255,255,0.1)]`}
                                     key={i}>
                                     <div className="relative w-[15%] max-w-[50px] min-w-[50px] max-sm:min-w-[30px] aspect-[1/1]">
-                                        <Image src={`/images/${el.src}_icon.png`} alt={el.alt} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <Image src={socialIcon(el.src)} alt={el.alt} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                     </div>
                                     <div className="w-[82%] flex flex-col justify-evenly gap-y-2">
                                         <h3 className="text-[22px] max-xl:text-[18px] text-cyan-500 hidden_text_contacts inline-flex max-sm:flex-col" style={{ fontFamily: 'RubikWetPaint', animationDelay: `${2.5 + 0.5 * i}s` }}>
@@ -74,7 +75,7 @@ const Contacts = ({ t }: ContactsProps) => {
                                                 onClick={() => { copyText(el.url, i) }}>
                                                 {buttonsTexts[i]}
                                                 <div className="w-[15px] max-sm:w-[10px] aspect-square relative">
-                                                    <Image src={`/images/icon_copy.png`} alt={"Icon copy"} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                                    <Image src={imageByBase("icon_copy")} alt={"Icon copy"} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                                 </div>
                                             </button>
                                         </h3>
@@ -98,7 +99,7 @@ const Contacts = ({ t }: ContactsProps) => {
                                 <div className={`w-[100%] max-w-[100%] flex gap-x-5 relative hover:translate-x-1 transition-all duration-305 ease-in-out min-h-[140px]
                                     bg-[rgba(0,255,255,0.01)] p-10 max-sm:p-5 rounded-[20px] border-1 border-[rgba(0,255,255,0.1)]`} key={i}>
                                     <div className="relative w-[15%] max-w-[50px] min-w-[50px] max-sm:min-w-[30px] aspect-[1/1]">
-                                        <Image src={`/images/${el.src}_icon.png`} alt={el.alt} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                        <Image src={socialIcon(el.src)} alt={el.alt} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                     </div>
                                     <div className="w-[82%] flex flex-col justify-evenly gap-y-2">
                                         <h3 className="text-[22px] max-xl:text-[18px] text-cyan-500 hidden_text_contacts inline-flex max-sm:flex-col" style={{ fontFamily: 'RubikWetPaint', animationDelay: `${2.5 + 0.5 * i}s` }}>
@@ -108,7 +109,7 @@ const Contacts = ({ t }: ContactsProps) => {
                                                 onClick={() => { copyText(el.url, i === 0 ? 3 : i === 1 ? 4 : 5) }}>
                                                 {i === 0 ? buttonsTexts[3] : i === 1 ? buttonsTexts[4] : buttonsTexts[5]}
                                                 <div className="w-[15px] max-sm:w-[10px] aspect-square relative">
-                                                    <Image src={`/images/icon_copy.png`} alt={"Icon copy"} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                                    <Image src={imageByBase("icon_copy")} alt={"Icon copy"} className="object-contain" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                                 </div>
                                             </button>
                                         </h3>
